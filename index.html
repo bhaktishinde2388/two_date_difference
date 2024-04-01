@@ -6,6 +6,7 @@
     <title>Date and Time</title>
 
     <style>
+                @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Pacifico&display=swap');
         body
         {
             /* background-image: radial-gradient( circle 321px at 8.3% 75.7%,  rgba(209,247,241,1) 0%, rgba(249,213,213,1) 81% ); */
@@ -30,13 +31,20 @@
         {
             margin: 10px auto;
             text-align: center;
-            font-size: 20px;
+            font-size: 25px;
+            font-family: "Lobster", sans-serif;
+            font-weight: lighter;
+            font-style: normal;
         }
         .heading
         {
            text-align: center;
            font-size: 40px;
+           font-family: "Lobster", sans-serif;
+            font-weight: 400;
+            font-style: normal;
         }
+
         .btn-container
         {
             display: flex;
@@ -52,35 +60,106 @@
             background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
             color: black;
             flex-direction: column;
+            font-family: "Lobster", sans-serif;
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        .diff
+        {
+            text-align: center;
+            display: block;
+            margin: auto;
+            font-size: 30px;
+            font-family: "Lobster", sans-serif;
+          font-weight: lighter;
+            font-style: normal;
+        }
+        .current
+        {
+            text-align: center;
+            font-size: 40px;
+            font-family: "Lobster", sans-serif;
+            font-weight: 200;
+            font-style: normal;
         }
     </style>
 </head>
 <body>
+    <div id="clock" class="current"></div>
     <div class="container">
-      <h1 class="heading" >Enter Date  for calculating difference</h1>
-            <div class="date">
-            <label for="date1">first Date
-                <input type="date" id="date1" >
-            </label >
+      <h1 class="heading" >Enter Date  for calculating your Age difference😍</h1><br>
 
-            <label for="date2">Second Date
-                <input type="date" id="date2">
-            </label>
-            </div>
+            <div class="date">
+            <label for="date1">first Date<input type="date" id="date1" ></label >
+            <label for="date2">Second Date <input type="date" id="date2"></label>
+            </div><br><br>
+
+
             <div class="btn-container">
-            <button type="button" id="btn-1" class="btn">Calculate </button>
-            <button type="button" id="btn-2" class="btn">Reset </button>
-        </div>
+            <button type="button" onclick=" calculate()" id="btn-1" class="btn">Calculate </button>
+            <button type="button" onclick="reset()" id="btn-2" class="btn">Reset </button>
+            </div>
 </div>
 
+
+<span id="calculate" class="diff"></span>  
+
+
 <script>
-    function enterDate()
+
+    function currentTime()
     {
-        const enterDate1 = document.getElementById('date1').value;
+       const date=new Date();
+       const time=date.toLocaleString();
+       document.getElementById("clock").innerText = time;
+    }
+
+    setInterval(currentTime,1000);
+
+
+    function calculate()
+    {
+            const enterDate1 = document.getElementById('date1').value;
             const date1 = new Date( enterDate1);
             const enterDate2 = document.getElementById('date2').value;
             const date2 = new Date( enterDate2);
-    }
+
+            let startDate= null;
+            let endDate=null;
+            let yearDiffr =null;
+            let monthDiffr = null;
+            let dateDiffr=null;
+
+            if(date1 > date2)
+            {
+               startDate= date2;
+               endDate= new Date(date1.getFullYear(),date1.getMonth(),date1.getDate()-1,);
+               yearDiffr = endDate.getFullYear() - startDate.getFullYear();
+               monthDiffr = endDate.getMonth() - startDate.getMonth();
+               dateDiffr = endDate.getDate() - startDate.getDate();
+   
+            }
+            else if(date1 < date2)
+            {
+               startDate= date1;
+               endDate= new Date(date2.getFullYear(),date2.getMonth(),date2.getDate()-1,);
+               yearDiffr = endDate.getFullYear() - startDate.getFullYear();
+               monthDiffr = endDate.getMonth() - startDate.getMonth();
+               dateDiffr = endDate.getDate() - startDate.getDate();
+            }
+            document.getElementById('calculate').innerText = `Difference is:${yearDiffr} Years : ${monthDiffr} Months : ${dateDiffr} Days `; 
+          
+        }
+
+        function reset(){
+            const val1 = document.getElementById("date1");
+            const val2 = document.getElementById("date2");
+            const result = document.getElementById("calculate");
+            val1.value = "";
+            val2.value = "";
+            result.innerText = "";
+        }
 </script>
 </body>
 </html>
