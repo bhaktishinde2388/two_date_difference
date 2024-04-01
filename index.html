@@ -11,18 +11,43 @@
             background-image: radial-gradient( circle 321px at 8.3% 75.7%,  rgba(209,247,241,1) 0%, rgba(249,213,213,1) 81% );
             /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% ); */
         }
+
+        .container
+        {
+            height: 400px;
+            width: 600px;
+            border: 2px solid gray;
+            border-radius: 5%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            display: block;
+            margin: 0 auto;
+        }
+        .date
+        {
+            margin: 10px auto;
+            text-align: center;
+            font-size: 20px;
+        }
+        .heading
+        {
+           text-align: center;
+           font-size: 40px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-    <h1 class="heading" >Difference Between Two Dates</h1>
-    <label for="date1">first Date
-        <input type="date" id="date1" class="date1">
-    </label >
+      <h1 class="heading" >Enter Date  for calculating difference</h1>
+            <div class="date">
+            <label for="date1">first Date
+                <input type="date" id="date1" >
+            </label >
 
-    <label for="date2">Second Date
-        <input type="date" id="date2">
-    </label>
+            <label for="date2">Second Date
+                <input type="date" id="date">
+            </label>
+
+</div>
 </div>
 </body>
 </html>
