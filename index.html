@@ -8,19 +8,23 @@
     <style>
         body
         {
-            background-image: radial-gradient( circle 321px at 8.3% 75.7%,  rgba(209,247,241,1) 0%, rgba(249,213,213,1) 81% );
-            /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% ); */
+            /* background-image: radial-gradient( circle 321px at 8.3% 75.7%,  rgba(209,247,241,1) 0%, rgba(249,213,213,1) 81% ); */
+            background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+            width: 10px auto;
+            padding-top: 40px;
         }
 
         .container
         {
-            height: 400px;
+            height: 350px;
             width: 600px;
             border: 2px solid gray;
             border-radius: 5%;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
             display: block;
             margin: 0 auto;
+            background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );
+            justify-content: center;
         }
         .date
         {
@@ -33,6 +37,22 @@
            text-align: center;
            font-size: 40px;
         }
+        .btn-container
+        {
+            display: flex;
+        }
+        .btn
+        {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 15%;
+            width: 25%;
+            font-size: 17px;
+            background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+            color: black;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -44,10 +64,23 @@
             </label >
 
             <label for="date2">Second Date
-                <input type="date" id="date">
+                <input type="date" id="date2">
             </label>
+            </div>
+            <div class="btn-container">
+            <button type="button" id="btn-1" class="btn">Calculate </button>
+            <button type="button" id="btn-2" class="btn">Reset </button>
+        </div>
+</div>
 
-</div>
-</div>
+<script>
+    function enterDate()
+    {
+        const enterDate1 = document.getElementById('date1').value;
+            const date1 = new Date( enterDate1);
+            const enterDate2 = document.getElementById('date2').value;
+            const date2 = new Date( enterDate2);
+    }
+</script>
 </body>
 </html>
