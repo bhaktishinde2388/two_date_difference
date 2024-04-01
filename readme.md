@@ -1,4 +1,4 @@
-# **Diffrence Between Two Dtates**
+# **Diffrence Between Two Dates**
 ## - <u>steps: </u>
 - Enter Date One.
 - Enter Date Two.
